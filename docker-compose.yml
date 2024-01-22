@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  keycloak:
+    container_name: keycloak
+    image: quay.io/keycloak/keycloak:23.0.4
+    stdin_open: true
+    ports:
+      - 18080:8080
+    volumes:
+      - keycloak-volume:/opt/keycloak/data
+    environment:
+      - KEYCLOAK_ADMIN=admin             # 管理者ユーザーID
+      - KEYCLOAK_ADMIN_PASSWORD=password # 管理者ユーザーパスワード
+    command: ["start-dev"] # start-dev: 開発モード, start: 本番モード
+    tty: true
+volumes:
+  keycloak-volume:
+    name: keycloak-volume

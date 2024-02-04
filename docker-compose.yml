@@ -12,7 +12,6 @@ services:
       - KEYCLOAK_ADMIN=admin             # 管理者ユーザーID
       - KEYCLOAK_ADMIN_PASSWORD=password # 管理者ユーザーパスワード
     command: ["start-dev"] # start-dev: 開発モード, start: 本番モード
-    tty: true
 volumes:
   keycloak-volume:
     name: keycloak-volume
